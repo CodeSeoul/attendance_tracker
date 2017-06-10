@@ -1,12 +1,7 @@
 package org.learnteachcode.seoul.attendance.tracker.frontend;
 
-import org.learnteachcode.seoul.attendance.tracker.api.event.Event;
 import org.learnteachcode.seoul.attendance.tracker.api.event.EventRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.List;
 
 @Controller
 public class EventWebController {
@@ -17,10 +12,10 @@ public class EventWebController {
         this.eventRepository = eventRepository;
     }
 
-    @GetMapping(path = "/events/select")
+    /*@GetMapping(path = "/events/select")
     public String selectEvent(Model model) {
         List<Event> eventList = eventRepository.findAll();
         model.addAttribute("eventList", eventList);
         return "events/select";
-    }
+    }*/
 }

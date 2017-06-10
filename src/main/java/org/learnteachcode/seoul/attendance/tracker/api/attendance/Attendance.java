@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Attendance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "event_id", referencedColumnName = "id")

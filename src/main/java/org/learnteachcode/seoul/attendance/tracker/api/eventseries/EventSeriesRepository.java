@@ -17,22 +17,11 @@
  * Modified by Learn Teach Code Seoul, Bryan "Beege" Berry
  */
 
-package org.learnteachcode.seoul.attendance.tracker.api.event;
+package org.learnteachcode.seoul.attendance.tracker.api.eventseries;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.security.access.prepost.PreAuthorize;
 
-public interface EventRepository extends PagingAndSortingRepository<Event, Long> {
-    @Override
-    @PreAuthorize("#event?.organizer == null or #event?.organizer?.name == authentication?.name")
-    Event save(@Param("event") Event event);
-
-    @Override
-    @PreAuthorize("@eventRepository.findOne(#id)?.organizer?.name == authentication?.name")
-    void delete(@Param("id") Long id);
-
-    @Override
-    @PreAuthorize("#even?.organizer?.name == authentication?.name")
-    void delete(@Param("even") Event event);
+@PreAuthorize("hasRole('ROLE_MANAGER')")
+public interface EventSeriesRepository extends PagingAndSortingRepository<EventSeries, Long> {
 }
