@@ -1,0 +1,43 @@
+{
+  "name": "attendance_tracker",
+  "version": "0.0.1",
+  "description": "Attendance Track for Learn Teach Code",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:LearnTeachCodeSeoul/attendance_tracker.git"
+  },
+  "keywords": [
+    "learn",
+    "teach",
+    "code",
+    "ltc",
+    "seoul",
+    "rest",
+    "hateoas",
+    "spring",
+    "data",
+    "react"
+  ],
+  "author": "Bryan 'Beege' Berry",
+  "license": "MIT",
+  "bugs": {
+    "url": "http://learnteachcodeseoul.github.io"
+  },
+  "homepage": "http://learnteachcodeseoul.github.io",
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "rest": "^1.3.1",
+    "webpack": "^1.12.2"
+  },
+  "scripts": {
+    "watch": "webpack --watch -d"
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0"
+  }
+}
