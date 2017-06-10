@@ -106,8 +106,15 @@
             <resource>
                 <filtering>true</filtering>
                 <includes>
-                    <include>**/*.properties</include>
+                    <include>*.properties</include>
                 </includes>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <filtering>false</filtering>
+                <excludes>
+                    <exclude>*.properties</exclude>
+                </excludes>
                 <directory>src/main/resources</directory>
             </resource>
         </resources>

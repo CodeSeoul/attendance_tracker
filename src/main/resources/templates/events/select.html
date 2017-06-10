@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>LTC - Event Create</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Select Event</h1>
+<table>
+    <tr>
+        <th>Event Series</th>
+        <th>Event Name</th>
+        <th>Event Time</th>
+    </tr>
+    <tr th:each="event : ${eventList}">
+        <td th:text="${event.eventSeries.name}">Event Series</td>
+        <td th:text="${event.name}">Event Name</td>
+        <td th:text="${event.eventStart">2017-01-01 00:00</td>
+    </tr>
+</table>
+</body>
+</html>
