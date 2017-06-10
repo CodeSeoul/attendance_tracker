@@ -1,10 +1,10 @@
 package org.learnteachcode.seoul.attendance.tracker.api.attendance;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
 
-public interface AttendanceRepository extends JpaRepository<Attendance, Long> {
+public interface AttendanceRepository extends PagingAndSortingRepository<Attendance, Long> {
     List<Attendance> findByEventId(long eventId);
 
     List<Attendance> findByAttendeeId(long attendeeId);
