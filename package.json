@@ -21,9 +21,9 @@
   "author": "Bryan 'Beege' Berry",
   "license": "MIT",
   "bugs": {
-    "url": "http://learnteachcodeseoul.github.io"
+    "url": "https://github.com/LearnTeachCodeSeoul/attendance_tracker/issues"
   },
-  "homepage": "http://learnteachcodeseoul.github.io",
+  "homepage": "https://github.com/LearnTeachCodeSeoul/attendance_tracker",
   "dependencies": {
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
