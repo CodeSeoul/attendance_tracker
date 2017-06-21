@@ -459,10 +459,10 @@ class Event extends React.Component{
     render() {
         return (
             <tr>
-			    <td>{this.props.event.name}</td>
-				<td>{this.props.event.name}</td>
-				<td>{this.props.event.eventStart}</td>
-				<td>{this.props.event.eventEnd}</td>
+			    <td>{this.props.event.entity.name}</td>
+				<td>{this.props.event.entity.name}</td>
+				<td>{this.props.event.entity.eventStart}</td>
+				<td>{this.props.event.entity.eventEnd}</td>
                 <td>
                     <UpdateDialog event={this.props.event}
                                   attributes={this.props.attributes}
