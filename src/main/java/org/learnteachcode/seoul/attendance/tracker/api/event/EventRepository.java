@@ -33,6 +33,6 @@ public interface EventRepository extends PagingAndSortingRepository<Event, Long>
     void delete(@Param("id") Long id);
 
     @Override
-    @PreAuthorize("#even?.organizer?.username == authentication?.name")
+    @PreAuthorize("#event?.organizer?.username == authentication?.name")
     void delete(@Param("even") Event event);
 }
