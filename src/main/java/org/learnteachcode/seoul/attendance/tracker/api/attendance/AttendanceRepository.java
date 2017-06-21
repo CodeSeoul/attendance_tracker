@@ -7,5 +7,5 @@ import java.util.List;
 public interface AttendanceRepository extends PagingAndSortingRepository<Attendance, Long> {
     List<Attendance> findByEventId(long eventId);
 
-    List<Attendance> findByAttendeeId(long attendeeId);
+    List<Attendance> findByMemberId(long memberId);
 }

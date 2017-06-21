@@ -1,7 +1,7 @@
 package org.learnteachcode.seoul.attendance.tracker.api.attendance;
 
-import org.learnteachcode.seoul.attendance.tracker.api.attendee.Attendee;
 import org.learnteachcode.seoul.attendance.tracker.api.event.Event;
+import org.learnteachcode.seoul.attendance.tracker.api.member.Member;
 
 import javax.persistence.*;
 
@@ -16,6 +16,8 @@ public class Attendance {
     private Event event;
 
     @ManyToOne
-    @JoinColumn(name = "attendee_id", referencedColumnName = "id")
-    private Attendee attendee;
+    @JoinColumn(name = "member_id", referencedColumnName = "id")
+    private Member member;
+
+    private String role;
 }

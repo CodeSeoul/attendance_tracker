@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.learnteachcode.seoul.attendance.tracker.api.attendance.Attendance;
 import org.learnteachcode.seoul.attendance.tracker.api.eventseries.EventSeries;
-import org.learnteachcode.seoul.attendance.tracker.api.organizer.Organizer;
+import org.learnteachcode.seoul.attendance.tracker.api.member.Member;
 
 import javax.persistence.*;
 import java.time.ZonedDateTime;
@@ -34,13 +34,14 @@ public class Event {
 
     @ManyToOne
     @JoinColumn(name = "organizer_id", referencedColumnName = "id")
-    private Organizer organizer;
+    private Member organizer;
 
-    public Event(String name, ZonedDateTime startTime, ZonedDateTime endTime, EventSeries eventSeries, Organizer organizer) {
+    public Event(String name, ZonedDateTime startTime, ZonedDateTime endTime, EventSeries eventSeries, Member organizer) {
         this.name = name;
         this.eventStart = startTime;
         this.eventEnd = endTime;
         this.eventSeries = eventSeries;
         this.attendanceList = new ArrayList<>();
+        this.organizer = organizer;
     }
 }

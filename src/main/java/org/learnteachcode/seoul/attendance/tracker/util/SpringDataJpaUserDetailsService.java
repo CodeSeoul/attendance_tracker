@@ -18,8 +18,8 @@
  */
 package org.learnteachcode.seoul.attendance.tracker.util;
 
-import org.learnteachcode.seoul.attendance.tracker.api.organizer.Organizer;
-import org.learnteachcode.seoul.attendance.tracker.api.organizer.OrganizerRepository;
+import org.learnteachcode.seoul.attendance.tracker.api.member.Member;
+import org.learnteachcode.seoul.attendance.tracker.api.member.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
@@ -35,18 +35,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class SpringDataJpaUserDetailsService implements UserDetailsService {
 
-    private final OrganizerRepository repository;
+    private final MemberRepository repository;
 
     @Autowired
-    public SpringDataJpaUserDetailsService(OrganizerRepository repository) {
+    public SpringDataJpaUserDetailsService(MemberRepository repository) {
         this.repository = repository;
     }
 
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        Organizer organizer = this.repository.findByName(name);
-        return new User(organizer.getName(), organizer.getPassword(),
-                AuthorityUtils.createAuthorityList(organizer.getRoles()));
+        Member member = this.repository.findByUsername(name);
+        return new User(member.getUsername(), member.getPassword(),
+                AuthorityUtils.createAuthorityList(member.getRoles()));
     }
 
 }

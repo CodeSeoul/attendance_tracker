@@ -18,7 +18,7 @@
  */
 package org.learnteachcode.seoul.attendance.tracker.config;
 
-import org.learnteachcode.seoul.attendance.tracker.api.organizer.Organizer;
+import org.learnteachcode.seoul.attendance.tracker.api.member.Member;
 import org.learnteachcode.seoul.attendance.tracker.util.SpringDataJpaUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -45,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .userDetailsService(this.userDetailsService)
-                .passwordEncoder(Organizer.PASSWORD_ENCODER);
+                .passwordEncoder(Member.PASSWORD_ENCODER);
     }
 
     @Override

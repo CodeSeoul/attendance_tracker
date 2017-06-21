@@ -25,14 +25,14 @@ import org.springframework.security.access.prepost.PreAuthorize;
 
 public interface EventRepository extends PagingAndSortingRepository<Event, Long> {
     @Override
-    @PreAuthorize("#event?.organizer == null or #event?.organizer?.name == authentication?.name")
+    @PreAuthorize("#event?.organizer == null or #event?.organizer?.username == authentication?.name")
     Event save(@Param("event") Event event);
 
     @Override
-    @PreAuthorize("@eventRepository.findOne(#id)?.organizer?.name == authentication?.name")
+    @PreAuthorize("@eventRepository.findOne(#id)?.organizer?.username == authentication?.name")
     void delete(@Param("id") Long id);
 
     @Override
-    @PreAuthorize("#even?.organizer?.name == authentication?.name")
+    @PreAuthorize("#even?.organizer?.username == authentication?.name")
     void delete(@Param("even") Event event);
 }

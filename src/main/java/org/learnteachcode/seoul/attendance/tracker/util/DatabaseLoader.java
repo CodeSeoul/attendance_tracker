@@ -22,8 +22,8 @@ import org.learnteachcode.seoul.attendance.tracker.api.event.Event;
 import org.learnteachcode.seoul.attendance.tracker.api.event.EventRepository;
 import org.learnteachcode.seoul.attendance.tracker.api.eventseries.EventSeries;
 import org.learnteachcode.seoul.attendance.tracker.api.eventseries.EventSeriesRepository;
-import org.learnteachcode.seoul.attendance.tracker.api.organizer.Organizer;
-import org.learnteachcode.seoul.attendance.tracker.api.organizer.OrganizerRepository;
+import org.learnteachcode.seoul.attendance.tracker.api.member.Member;
+import org.learnteachcode.seoul.attendance.tracker.api.member.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -42,16 +42,16 @@ import java.time.ZoneId;
 public class DatabaseLoader implements CommandLineRunner {
 
     private final EventRepository events;
-    private final OrganizerRepository organizers;
+    private final MemberRepository members;
     private final EventSeriesRepository eventSeriesRepository;
 
     @Autowired
     public DatabaseLoader(EventRepository eventRepository,
-                          OrganizerRepository organizerRepository,
+                          MemberRepository memberRepository,
                           EventSeriesRepository eventSeriesRepository) {
 
         this.events = eventRepository;
-        this.organizers = organizerRepository;
+        this.members = memberRepository;
         this.eventSeriesRepository = eventSeriesRepository;
     }
 
@@ -60,9 +60,9 @@ public class DatabaseLoader implements CommandLineRunner {
         EventSeries socialSeries = new EventSeries("Social");
         EventSeries beginnerJavaSeries = new EventSeries("Beginner Java");
 
-        Organizer greg = this.organizers.save(new Organizer("greg", "turnquist",
+        Member greg = this.members.save(new Member("greg", "turnquist",
                 "ROLE_MANAGER"));
-        Organizer oliver = this.organizers.save(new Organizer("oliver", "gierke",
+        Member oliver = this.members.save(new Member("oliver", "gierke",
                 "ROLE_MANAGER"));
 
         SecurityContextHolder.getContext().setAuthentication(
