@@ -432,7 +432,7 @@ class EventList extends React.Component{
                             <th></th>
                             <th></th>
                         </tr>
-                        {event}
+                        {events}
                     </tbody>
                 </table>
                 <div>
@@ -459,7 +459,7 @@ class Event extends React.Component{
     render() {
         return (
             <tr>
-			    <td>{this.props.event.eventSeries.name}</td>
+			    <td>{this.props.event.name}</td>
 				<td>{this.props.event.name}</td>
 				<td>{this.props.event.eventStart}</td>
 				<td>{this.props.event.eventEnd}</td>
