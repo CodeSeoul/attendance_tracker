@@ -274,7 +274,7 @@ class CreateDialog extends React.Component {
 	render() {
 		var inputs = this.props.attributes.map(attribute =>
 				<p key={attribute}>
-					<input type="text" placeholder={attribute} ref={attribute} className="field" />
+					<label>{attribute}</label><input type="text" placeholder={attribute} ref={attribute} className="field" />
 				</p>
 		);
 		return (
@@ -320,6 +320,7 @@ class UpdateDialog extends React.Component {
 	render() {
 		var inputs = this.props.attributes.map(attribute =>
 				<p key={this.props.event.entity[attribute]}>
+				    <label>{attribute}</label>
 					<input type="text" placeholder={attribute}
 						   defaultValue={this.props.event.entity[attribute]}
 						   ref={attribute} className="field" />
