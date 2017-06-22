@@ -75,6 +75,49 @@ class App extends React.Component {
             );
         }).then(eventPromises => {
             return when.all(eventPromises);
+        }).then(events => {
+            console.log('events');
+            console.log(events);
+            console.log('typeof: ' + typeof events);
+            console.log('isArray: ' + Array.isArray(events));
+            /*const something = events.map(event =>
+                client({
+                    method: 'GET',
+                    path: event.entity._links.eventSeries.href
+                }).then(eventSeriesPromises => {
+                      console.log('eventSeriesPromises');
+                      console.log(eventSeriesPromises);
+                      return when.all(eventSeriesPromises);
+                }).done(eventSeries => {
+                      console.log('eventSeries');
+                      console.log(eventSeries);
+                      event.entity.eventSeriesName = eventSeries.entity.name;
+                      console.log('event with series added');
+                      console.log(event);
+                })
+            );*/
+            console.log('doing map');
+            const result = events.map(event => {
+                console.log('event in map');
+                console.log(event);
+                const result = event.entity.eventSeries.entity()
+                .then(eventSeries => {
+                    console.log('eventSeries');
+                    console.log(eventSeries);
+                    event.entity.eventSeriesName = eventSeries.name;
+                    console.log('event after series assignment');
+                    console.log(event);
+                    return event;
+                });
+                console.log('result in map');
+                console.log(result);
+                return result
+            }));
+            console.log('result');
+            console.log(result);
+            console.log('events after series map');
+            console.log(events);
+            return events;
         }).done(events => {
             this.setState({
                 page: this.page,
