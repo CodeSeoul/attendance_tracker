@@ -277,11 +277,6 @@ class App extends React.Component {
             {route: '/topic/updateEvent', callback: this.refreshCurrentPage},
             {route: '/topic/deleteEvent', callback: this.refreshCurrentPage}
         ]);
-        /*
-        client({method: 'GET', path: '/api/v1/events'}).done(response => {
-            this.setState({events: response.entity._embedded.events});
-        });
-        */
     }
     // end::register-handlers[]
 
